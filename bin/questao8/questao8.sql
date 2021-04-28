@@ -1,24 +1,25 @@
-CREATE TABLE cats  (
+CREATE TABLE gatos  (
     id INT primary key,
-    name varchar not null 
+    nome varchar not null 
 );
 
-CREATE TABLE dogs  (
+CREATE TABLE cachorros  (
     id INT primary key,
-    name varchar not null 
+    nome varchar not null 
 );
 
-insert into cats values(1, 'Gugu');
-insert into cats values(2, 'Travis');
-insert into cats values(3, 'Hansi');
-insert into dogs values(1, 'Hansi');
-insert into dogs values(2, 'Jack');
-insert into dogs values(3, 'Tako');
+INSERT INTO gatos VALUES(1, 'Gugu');
+INSERT INTO gatos VALUES(2, 'Travis');
+INSERT INTO gatos VALUES(3, 'Hansi');
+INSERT INTO cachorros VALUES(1, 'Hansi');
+INSERT INTO cachorros VALUES(2, 'Jack');
+INSERT INTO cachorros VALUES(3, 'Tako');
 
 
-select distinct name from (
-    select name from cats 
-    union 
-    select name from dogs);
+SELECT DISTINCT nome from (
+    SELECT nome FROM gatos 
+    UNION 
+    SELECT nome FROM cachorros);
     
+
     

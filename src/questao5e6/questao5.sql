@@ -34,6 +34,7 @@ VALUES ('8','70','79');
 INSERT INTO Notas (Nota, Valor_Min, Valor_Max)
 VALUES ('9','80', '89');
 INSERT INTO Notas (Nota, Valor_Min, Valor_Max)
+
 VALUES ('10','90','99');
 INSERT INTO Alunos (ID, Nome, Valor)
 VALUES ('1','Julia','81');
@@ -48,38 +49,35 @@ VALUES ('5','Jaqueline','63');
 INSERT INTO Alunos (ID, Nome, Valor)
 VALUES ('6','Marcela','88');
 INSERT INTO Alunos (ID, Nome, Valor)
-VALUES ('7','Marcelina','89');
+VALUES ('7','Helen','89');
 INSERT INTO Alunos (ID, Nome, Valor)
-VALUES (8,'Marcelino','90');
+VALUES (8,'Gustavo','90');
 INSERT INTO Alunos (ID, Nome, Valor)
 VALUES (9,'Marceline','91');
 INSERT INTO Alunos (ID, Nome, Valor)
-VALUES (10,'Marceline','92');
+VALUES (10,'Rita','92');
 
-insert into alunos_notas values (2,5);
-insert into alunos_notas values (3,8);
-insert into alunos_notas values (4,9);
-insert into alunos_notas values (5,8);
-insert into alunos_notas values (6,10);
-insert into alunos_notas values (7,9);
-insert into alunos_notas values (8,10);
-insert into alunos_notas values (9,10);
-insert into alunos_notas values (10,10);
+INSERT INTO alunos_notas VALUES (2,5);
+INSERT INTO alunos_notas VALUES (3,8);
+INSERT INTO alunos_notas VALUES (4,9);
+INSERT INTO alunos_notas VALUES (5,8);
+INSERT INTO alunos_notas VALUES (6,10);
+INSERT INTO alunos_notas VALUES (7,9);
+INSERT INTO alunos_notas VALUES (8,10);
+INSERT INTO alunos_notas VALUES (9,10);
+INSERT INTO alunos_notas VALUES (10,10);
 
-
-   select
+   SELECT
     case
-	    when n.nota < 8 then 'NULL' 
+	    when n.nota < 8 THEN 'NULL' 
 		else a.nome 
-	end as 'Nome',
+	END AS 'Nome',
 	n.nota,
 	a.valor
-    from alunos a 
-    inner join alunos_notas an 
-    	on an.id_alunos = a.id 
-    inner join notas n 
-    	on n.nota = an.id_notas
+    FROM alunos a 
+    INNER JOIN alunos_notas an 
+    	ON an.id_alunos = a.id 
+    INNER JOIN notas n 
+    	ON n.nota = an.id_notas
     
-    	order by n.nota desc,  a.nome asc;
-    	
-    	
+    	ORDER BY n.nota desc,  a.nome asc;

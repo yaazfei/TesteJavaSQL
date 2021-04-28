@@ -1,5 +1,8 @@
 package questao3e4;
 
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
+//questao4
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -39,4 +42,18 @@ public class CalculadorStringTeste {
 		      assertEquals("não", calculador.concatERemove("blufblufbluf", "bluf", 3),      
 		    	        "Deve funcionar."); 
 	    }
+	    
+	    @Test
+	    @DisplayName("Teste de Exception")
+	    public void deveRetornaExceptionQuandoVazio() {
+	          Exception exception = assertThrows(RuntimeException.class, () -> {
+	              calculador.concatERemove("", "AAA", 3);
+	            });
+	            String expectedMessage = "Tamanho do texto diferente do permitido";
+	            String actualMessage = exception.getMessage();
+	            assertTrue(actualMessage.contains(expectedMessage));
+	                
+	    }
+	    
+
 }
